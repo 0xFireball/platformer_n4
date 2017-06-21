@@ -4,13 +4,6 @@ import n4.NGame;
 
 class Main {
 	public static function main() {
-		NGame.syncDrawUpdate = true;
-		NGame.init("platformer_n4", 
-		#if sys_html5
-			0, 0,
-		#else
-			1024, 768,
-		#end
-			PlayState, 60);
+		NGame.init("platformer_n4", 1024, 768, PlayState);
 	}
 }
