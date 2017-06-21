@@ -1,5 +1,6 @@
 package;
 
+import kha.Color;
 import n4.*;
 import n4.NState;
 import n4.group.NTypedGroup;
@@ -13,6 +14,9 @@ class PlayState extends NState {
 	private var boxes:NTypedGroup<Box>;
 
 	override public function create() {
+
+		bgColor = Color.fromFloats(0.95, 0.95, 0.95);
+
 		player = new Player(240, 240);
 		add(player);
 

@@ -12,7 +12,7 @@ class Player extends NSprite {
 	public function new (?X:Float = 0, ?Y:Float = 0) {
 		super(X, Y);
 
-		makeGraphic(36, 36, Color.fromFloats(0.2, 0.2, 1.0));
+		makeGraphic(16, 32, Color.fromFloats(0.2, 0.2, 1.0));
 
 		drag.set(280, 280);
 		maxVelocity.set(120, 120);
