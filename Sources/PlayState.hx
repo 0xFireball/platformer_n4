@@ -3,6 +3,7 @@ package;
 import n4.*;
 import n4.NState;
 import n4.group.NTypedGroup;
+import n4.NCamera;
 
 import sprites.*;
 
@@ -17,7 +18,9 @@ class PlayState extends NState {
 
 		boxes = new NTypedGroup<Box>();
 		boxes.add(new Box(80, 80));
-		add(boxes);		
+		add(boxes);
+
+		NG.camera.follow(player, NCameraFollowStyle.TOPDOWN_TIGHT, 0.1);
 
 		super.create();
 	}
