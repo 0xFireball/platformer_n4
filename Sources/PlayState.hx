@@ -20,6 +20,8 @@ class PlayState extends NState {
 		boxes.add(new Box(80, 80));
 		add(boxes);
 
+		NG.camera.reset();
+		NG.camera.zoom = 1.4;
 		NG.camera.follow(player, NCameraFollowStyle.TOPDOWN_TIGHT, 0.1);
 
 		super.create();
