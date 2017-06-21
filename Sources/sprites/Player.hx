@@ -1,6 +1,7 @@
 package sprites;
 
 import kha.Color;
+import kha.input.KeyCode;
 import n4.*;
 import n4.math.NVector;
 import n4.entities.NSprite;
@@ -12,7 +13,11 @@ class Player extends NSprite {
 	public function new (?X:Float = 0, ?Y:Float = 0) {
 		super(X, Y);
 
-		makeGraphic(16, 32, Color.fromFloats(0.2, 0.2, 1.0));
+		// makeGraphic(16, 32, Color.fromFloats(0.2, 0.2, 1.0));
+		// loadGraphic("tux.png", true, 56, 80);
+		loadGraphic("rectanglez.png", true, 16, 32);
+
+		animation.add("walk", [0, 1, 2], 3);
 
 		drag.set(280, 280);
 		maxVelocity.set(120, 120);
@@ -30,10 +35,10 @@ class Player extends NSprite {
 		var left:Bool = false;
 		var right:Bool = false;
 
-		up = NG.keys.pressed(["UP", "W"]);
-		down = NG.keys.pressed(["DOWN", "S"]);
-		left = NG.keys.pressed(["LEFT", "A"]);
-		right = NG.keys.pressed(["RIGHT", "D"]);
+		up = NG.keys.pressed([KeyCode.Up, KeyCode.W]);
+		down = NG.keys.pressed([KeyCode.Down, KeyCode.S]);
+		left = NG.keys.pressed([KeyCode.Left, KeyCode.A]);
+		right = NG.keys.pressed([KeyCode.Right, KeyCode.D]);
 
 		if (up && down) up = down = false;
 		if (left && right) left = right = false;
@@ -62,6 +67,14 @@ class Player extends NSprite {
 
 			// add to motion
 			velocity.addPoint(mv);
+		}
+	}
+
+	private override function animate() {
+		if (Math.abs(velocity.x) > 0) {
+			animation.play("walk");
+		} else {
+			animation.stop();
 		}
 	}
 }
