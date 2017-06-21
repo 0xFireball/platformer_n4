@@ -16,6 +16,8 @@ class Player extends NSprite {
 		// makeGraphic(16, 32, Color.fromFloats(0.2, 0.2, 1.0));
 		// loadGraphic("tux.png", true, 56, 80);
 		loadGraphic("rectanglez.png", true, 16, 32);
+		offset.set(4, 4);
+		setSize(8, 24);
 
 		animation.add("walk", [0, 1, 2], 3);
 
