@@ -5,6 +5,7 @@ import n4.*;
 import n4.NState;
 import n4.group.NTypedGroup;
 import n4.NCamera;
+import n4.display.NBackdrop;
 
 import sprites.*;
 
@@ -16,6 +17,9 @@ class PlayState extends NState {
 	override public function create() {
 
 		bgColor = Color.fromFloats(0.95, 0.95, 0.95);
+
+		// var backdrop = new NBackdrop("backdrop.png");
+		// add(backdrop);
 
 		player = new Player(240, 240);
 		add(player);

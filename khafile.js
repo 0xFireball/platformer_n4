@@ -6,4 +6,6 @@ project.addAssets('Assets/**');
 project.addSources('Sources');
 project.addLibrary('n4');
 
+// project.addDefine('COLLISION_DEBUG');
+
 resolve(project);
